@@ -1,5 +1,5 @@
 import nmap
- import scanner
+import scanner
 
  def map_website(website, port_range="1-65535", nm=None):
      ip_address = resolve_host(website)
