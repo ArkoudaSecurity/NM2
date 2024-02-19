@@ -1,7 +1,9 @@
 import nmap as nm
 import socket
 
+
 def resolve_host(hostname):
+    # Resolves the IP address of a given hostname.
     try:
         ip_address = socket.gethostbyname(hostname)
         return ip_address
@@ -10,6 +12,7 @@ def resolve_host(hostname):
         return None
 
 def scan_ports(target, port_range, nm):
+    # Scans ports on a target using Nmap.
     nm.scan(target, arguments=f'-p {port_range} -T4 -O')  # Added OS detection flag '-O'
 
     open_ports = []
@@ -19,16 +22,18 @@ def scan_ports(target, port_range, nm):
                 if nm[host]['tcp'][port]['state'] == 'open':
                     open_ports.append((host, 'tcp', port))
 
-    return open_ports
+    results = open_ports
+    return results
 
 def get_service_info(host, proto, port, nm):
+    # Retrieves service information for a given host, protocol, and port.
     try:
         return nm[host][proto][port]
     except KeyError:
         return {"name": "Unknown Service", "extrainfo": "Unknown Risk"}
 
 def assess_risk(extrainfo):
-    # Modify this function based on your actual risk assessment logic
+    # Assess the risk level based on extra information provided for a service.
     if "high" in extrainfo.lower():
         return "High Risk"
     elif "medium" in extrainfo.lower():
@@ -39,6 +44,7 @@ def assess_risk(extrainfo):
         return "Unknown Risk"
 
 def print_open_ports_table(open_ports, nm):
+    # Prints a table of open ports along with service and risk level information.
     print("Open Ports Table:")
     print("{:<15} {:<15} {:<10} {:<20} {:<40}".format("Host", "Protocol", "Port", "Service", "Risk Level"))
     print("-" * 100)
@@ -65,7 +71,7 @@ def print_open_ports_table(open_ports, nm):
             print(f"{host}: {os_detections}")
 
 def print_security_reasons(port):
-    # Provide reasons for securing the open ports
+    # Prints security considerations for open ports.
     security_reasons = {
         21: "FTP (File Transfer Protocol) - Unencrypted file transfer. Use SFTP or FTPS for secure file transfer.",
         22: "SSH (Secure Shell) - Secure remote access. Limit access to authorized users.",
