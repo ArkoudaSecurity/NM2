@@ -1,5 +1,5 @@
 # NM2
-NM2 by Arkouda Security, is an network scanning tool for cybersecurity professionals. It enhances network analysis and security assessment with precision, speed, and versatility, building upon Nmap's legacy for a new era of reconnaissance.
+NM2 by Arkouda Security, is a network scanning tool for cybersecurity professionals. It enhances network analysis and security assessment with precision, speed, and versatility, building upon Nmap's legacy for a new era of reconnaissance.
 
 ![](https://github.com/yusufmunircloud/AWS-Projects/blob/main/img/general/NGS-10.png?raw=true)
 
