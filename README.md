@@ -1,5 +1,5 @@
 # NM2
-NM2 by Arkouda Security, is an open-source network scanning tool for cybersecurity professionals. It enhances network analysis and security assessment with precision, speed, and versatility, building upon Nmap's legacy for a new era of reconnaissance.
+NM2 by Arkouda Security, is an network scanning tool for cybersecurity professionals. It enhances network analysis and security assessment with precision, speed, and versatility, building upon Nmap's legacy for a new era of reconnaissance.
 
 ## Installation
 
@@ -13,3 +13,14 @@ git clone https://github.com/ArkoudaSecurity/NM2.git
 cd NetSavvy
 pip install -r requirements.txt
 ```
+
+## Usage
+Run NetSavvy with default settings:
+
+```bash
+python nm2.py
+```
+
+## Contact
+
+For questions or support, contact us at `arkouda.contactus@gmail.com`
